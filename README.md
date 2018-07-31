@@ -6,12 +6,12 @@
 
 ## 使用说明
 
-    运行server端
+### 运行server端
 ```
 pip install zeroc-ice
 python server.py 5001
 ```
-    运行client端
+### 运行client端
 ```
 pip install zeroc-ice
 python client.py [server host] 5001
