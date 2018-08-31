@@ -10,8 +10,10 @@ module CONE {
 
     interface Peer {
         string ping(string peerID);
-        string swap();
+        string swap(string info);
         string connect(string peerID);
+        string register(string info);
+        string check(string info);
         string pong();
     };
 

@@ -44,14 +44,14 @@ if 'PeerPrx' not in _M_CONE.__dict__:
         def end_ping(self, _r):
             return _M_CONE.Peer._op_ping.end(self, _r)
 
-        def swap(self, context=None):
-            return _M_CONE.Peer._op_swap.invoke(self, ((), context))
+        def swap(self, info, context=None):
+            return _M_CONE.Peer._op_swap.invoke(self, ((info, ), context))
 
-        def swapAsync(self, context=None):
-            return _M_CONE.Peer._op_swap.invokeAsync(self, ((), context))
+        def swapAsync(self, info, context=None):
+            return _M_CONE.Peer._op_swap.invokeAsync(self, ((info, ), context))
 
-        def begin_swap(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_CONE.Peer._op_swap.begin(self, ((), _response, _ex, _sent, context))
+        def begin_swap(self, info, _response=None, _ex=None, _sent=None, context=None):
+            return _M_CONE.Peer._op_swap.begin(self, ((info, ), _response, _ex, _sent, context))
 
         def end_swap(self, _r):
             return _M_CONE.Peer._op_swap.end(self, _r)
@@ -67,6 +67,30 @@ if 'PeerPrx' not in _M_CONE.__dict__:
 
         def end_connect(self, _r):
             return _M_CONE.Peer._op_connect.end(self, _r)
+
+        def register(self, info, context=None):
+            return _M_CONE.Peer._op_register.invoke(self, ((info, ), context))
+
+        def registerAsync(self, info, context=None):
+            return _M_CONE.Peer._op_register.invokeAsync(self, ((info, ), context))
+
+        def begin_register(self, info, _response=None, _ex=None, _sent=None, context=None):
+            return _M_CONE.Peer._op_register.begin(self, ((info, ), _response, _ex, _sent, context))
+
+        def end_register(self, _r):
+            return _M_CONE.Peer._op_register.end(self, _r)
+
+        def check(self, info, context=None):
+            return _M_CONE.Peer._op_check.invoke(self, ((info, ), context))
+
+        def checkAsync(self, info, context=None):
+            return _M_CONE.Peer._op_check.invokeAsync(self, ((info, ), context))
+
+        def begin_check(self, info, _response=None, _ex=None, _sent=None, context=None):
+            return _M_CONE.Peer._op_check.begin(self, ((info, ), _response, _ex, _sent, context))
+
+        def end_check(self, _r):
+            return _M_CONE.Peer._op_check.end(self, _r)
 
         def pong(self, context=None):
             return _M_CONE.Peer._op_pong.invoke(self, ((), context))
@@ -112,11 +136,17 @@ if 'PeerPrx' not in _M_CONE.__dict__:
         def ping(self, peerID, current=None):
             raise NotImplementedError("servant method 'ping' not implemented")
 
-        def swap(self, current=None):
+        def swap(self, info, current=None):
             raise NotImplementedError("servant method 'swap' not implemented")
 
         def connect(self, peerID, current=None):
             raise NotImplementedError("servant method 'connect' not implemented")
+
+        def register(self, info, current=None):
+            raise NotImplementedError("servant method 'register' not implemented")
+
+        def check(self, info, current=None):
+            raise NotImplementedError("servant method 'check' not implemented")
 
         def pong(self, current=None):
             raise NotImplementedError("servant method 'pong' not implemented")
@@ -130,8 +160,10 @@ if 'PeerPrx' not in _M_CONE.__dict__:
     Peer._ice_type = _M_CONE._t_PeerDisp
 
     Peer._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
-    Peer._op_swap = IcePy.Operation('swap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    Peer._op_swap = IcePy.Operation('swap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
     Peer._op_connect = IcePy.Operation('connect', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
+    Peer._op_register = IcePy.Operation('register', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
+    Peer._op_check = IcePy.Operation('check', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
     Peer._op_pong = IcePy.Operation('pong', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_CONE.Peer = Peer

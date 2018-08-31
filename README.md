@@ -23,7 +23,6 @@ python client.py [server host] 5001
 
 1.  基于C/S模式的NAT穿透；
 2.  实现NAT穿透聊天程序；
-10.  承载基础服务，如远程桌面、ssh等；
 3.  增加SOCKS代理，http/https代理；
 4.  [可选]支持VPN代理；
 5.  去中心化，部署种子节点；
